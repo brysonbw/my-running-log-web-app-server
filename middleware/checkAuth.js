@@ -11,7 +11,7 @@ const validate = (req, res, next) => {
 
   // verify token
   try {
-    const decoded = jwt.verify(accessToken, process.env.ACCESS_SECRET);
+    const decoded = jwt.verify(accessToken, `${process.env.ACCESS_SECRET}`);
     if (decoded) {
       req.user = decoded
       return next();
